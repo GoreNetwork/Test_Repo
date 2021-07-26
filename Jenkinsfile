@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Ted") {
             steps{
-                echo $GIT_BRANCH
+                echo "$GIT_BRANCH"
             }
         }
     }
