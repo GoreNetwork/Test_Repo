@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage("Ted") { 
+        stage("Show Branch") { 
             steps{
                 echo "$GIT_BRANCH"
             }
