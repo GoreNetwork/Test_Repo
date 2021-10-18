@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    // dir('/home/dhimes/Test_Repo/Playbooks')
+    dir('./Playbooks')
     stages {
         stage('Build Configs') {
             // environment {
