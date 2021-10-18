@@ -26,6 +26,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 dir('batfish_tests'){
+                    sh 'pip3 install pandas'
+                    sh 'pip3 install pybatfish'
                     sh 'python3 brand_new_work.py'
                         
                 }
