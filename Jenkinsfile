@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    dir('./Playbooks')
+    dir('$workspace/Playbooks')
     stages {
         stage('Build Configs') {
             // environment {
