@@ -26,7 +26,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 dir('batfish_tests'){
-                    sh 'python brand_new_work.py'
+                    sh 'python3 brand_new_work.py'
                         
                 }
             }
