@@ -10,12 +10,12 @@ pipeline {
                 // PASSWORD = "$SERVICE_CREDS_PSW"
             // }
             steps {
-                dir('$workspace/Playbooks'){
+                // dir('$workspace/Playbooks'){}
                 sh "pwd"
                 sh "ll"
                 // sh "echo $workspace/Playbooks"
                 sh 'ansible-playbook -i hosts build_switches.yml'
-            }}
+            }
         }
     }
 }
