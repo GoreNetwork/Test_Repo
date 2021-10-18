@@ -21,7 +21,7 @@ pipeline {
                     sh 'cp ./Playbooks/output/ ./batfish_tests/snapshots/lab/'
                 }
             }
-        }
+        
         stage('Run Tests') {
             steps {
                 dir('batfish_tests'){
