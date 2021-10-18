@@ -9,7 +9,7 @@ pipeline {
                 // PASSWORD = "$SERVICE_CREDS_PSW"
             // }
             steps {
-                sh 'ansible-playbook -i hosts Playbooks/build_switches.yml'
+                sh 'ansible-playbook -i Playbooks/hosts Playbooks/build_switches.yml'
                 sh "ll Playbooks/Output/R1/"
             }
         }
