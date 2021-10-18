@@ -2,7 +2,6 @@
 hostname: R5
 managment_ip: 10.0.0.5
 managment_snm: 255.255.255.255
-device_type: vios
 need_dfgw: False
 eigrp: True
 router_switch: router

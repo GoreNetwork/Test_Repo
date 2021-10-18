@@ -2,7 +2,6 @@
 hostname: R1
 managment_ip: 10.0.0.1
 managment_snm: 255.255.255.255
-device_type: vios
 need_dfgw: True
 default_gateway: 192.168.0.1
 eigrp: True
