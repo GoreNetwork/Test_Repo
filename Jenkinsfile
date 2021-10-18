@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Copy over configs to batfish test') {
             steps {
-                    sh 'cp ./Playbooks/output/ ./batfish_tests/snapshots/lab/'
+                    sh 'cp ./Playbooks/output/* ./batfish_tests/snapshots/lab/'
                 }
             }
         
