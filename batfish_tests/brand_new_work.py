@@ -17,7 +17,7 @@ import getpass
 # Once you have run this once to start it back up you'll need to run "docker start [huge ID line]"
 bf_session.host = '192.168.0.112'
 network_name = 'lab'
-snapshot_path = './batfish_tests/snapshots/lab/'
+snapshot_path = './snapshots/lab/'
 bf_set_network(network_name)
 bf_session.init_snapshot(snapshot_path, name=network_name, overwrite=True)
 load_questions()
