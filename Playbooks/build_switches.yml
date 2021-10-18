@@ -7,12 +7,12 @@
 
   - name: REMOVE EXISTING FILES
     file:
-      path: /home/dhimes/Ansible_config_work/Playbooks/output/{{hostname}}
+      path: ./Playbooks/output/{{hostname}}
       state: absent
 
   - name: MAKE SURE NEEDED FOLDER EXISTS
     file:
-      path: /home/dhimes/Ansible_config_work/Playbooks/output/{{hostname}}
+      path: ./Ansible_config_work/Playbooks/output/{{hostname}}
       state: directory
 
   - name: "BUILD CONFIG SNIPPETS"
@@ -27,4 +27,4 @@
   - name: Build_config
     ansible.builtin.assemble:
       src: "{{output_folder}}"
-      dest: "/home/dhimes/Ansible_config_work/Playbooks/final_output/{{hostname}}.cfg"
+      dest: "./Playbooks/final_output/{{hostname}}.cfg"
