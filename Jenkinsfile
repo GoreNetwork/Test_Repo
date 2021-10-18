@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example Username/Password') {
             environment {
-                SERVICE_CREDS = credentials('my-predefined-username-password')
+                SERVICE_CREDS = credentials('Ansible_Account')
             }
             steps {
                 sh 'echo "Service user is $SERVICE_CREDS_USR"'
