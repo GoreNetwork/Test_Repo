@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Example Username/Password') {
             environment {
-                SERVICE_CREDS = credentials('Ansible_Account')
+                SERVICE_CREDS = credentials('ANSIBLE')
             }
             steps {
                 sh 'echo bob'
