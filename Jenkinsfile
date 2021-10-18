@@ -13,7 +13,7 @@ pipeline {
                 // dir('Playbooks'){
                 //     sh 'ansible-playbook -i hosts build_switches.yml'
                 // }
-                sh 'ansible-playbook -i Playbooks/hosts Playbooks/build_switches.yml'
+                sh 'ansible-playbook Playbooks/build_switches.yml'
             }
         }
     }
