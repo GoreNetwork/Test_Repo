@@ -11,6 +11,8 @@ pipeline {
             // }
             steps {
                 dir('$workspace/Playbooks'){
+                sh "pwd"
+                sh "ll"
                 // sh "echo $workspace/Playbooks"
                 sh 'ansible-playbook -i hosts build_switches.yml'
             }}
