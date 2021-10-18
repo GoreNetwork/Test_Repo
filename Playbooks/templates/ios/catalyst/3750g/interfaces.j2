@@ -1,0 +1,30 @@
+interface gi1/0/1
+description Demo of for loop
+{% if ports.interface1.trunk == True %}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+{% endif %}
+no shut
+switchport access vlan {{ports.interface1.access_vlan}}
+
+
+interface gi1/0/2
+description Demo of for loop
+{% if ports.interface2.trunk == True %}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+{% for vlan in trunk_allowed_vlans %}
+switchport trunk allowed vlan add {{vlan}}
+{% endfor %}
+{% endif %}
+no shut
+switchport access vlan {{ports.interface2.access_vlan}}
+
+
+interface gi1/0/3
+{% if ports.interface3.trunk == True %}
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+{% endif %}
+no shut
+switchport access vlan {{ports.interface3.access_vlan}}

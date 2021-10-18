@@ -1,0 +1,13 @@
+{% extends "switch_main.j2"%}
+{% block interfaces %}
+interface Vlan1
+ no ip address
+ !
+!
+interface Vlan10
+ description Internal LAN
+{% endblock %}
+
+{% block nat %}
+ip nat inside source list NAT interface FastEthernet4 overload
+{% endblock %}

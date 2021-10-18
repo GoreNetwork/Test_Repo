@@ -1,0 +1,20 @@
+---
+hostname: R4
+managment_ip: 10.0.0.4
+managment_snm:  255.255.255.255
+device_type: vios
+need_dfgw: False
+eigrp: True
+router_switch: router
+device_type: ios
+
+ports: 
+  interface2: 
+    ip_address: 192.168.13.3 255.255.255.0
+  interface3: 
+    ip_address: 192.168.23.3 255.255.255.0
+  interface4: 
+    ip_address: 192.168.34.3 255.255.255.0
+
+acl_ssh_looky: False
+acl_insecure: False

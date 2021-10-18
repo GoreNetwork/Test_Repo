@@ -1,0 +1,25 @@
+---
+hostname: office_switch
+ansible_host: 192.168.0.104
+device_type: cisco_3750g
+l2_l3: L3
+default_gateway: 192.168.0.1
+trunk_allowed_vlans:
+  - 1
+  - 2
+  - 5 - 10
+trunk_interfaces:
+ - 11
+ - 14
+stp_priority: 32768
+
+ports: 
+  interface1: 
+    trunk: False
+    access_vlan: "{{ vlan_names.data_vlan }}"
+  interface2: 
+    trunk: True
+    access_vlan: "{{ vlan_names.data_vlan }}"
+  interface3: 
+    trunk: False
+    access_vlan: "{{ vlan_names.data_vlan }}"

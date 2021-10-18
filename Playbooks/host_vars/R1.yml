@@ -1,0 +1,26 @@
+---
+hostname: R1
+managment_ip: 10.0.0.1
+managment_snm: 255.255.255.255
+device_type: vios
+need_dfgw: True
+default_gateway: 192.168.0.1
+eigrp: True
+router_switch: router
+device_type: ios
+
+
+ports: 
+  interface1: 
+    ip_address: 192.168.1.1 255.255.255.0
+    acl_in: acl_ssh_looky
+    acl_out:  acl_ssh_looky
+  interface2: 
+    ip_address: 192.168.13.1 255.255.255.0
+  interface3: 
+    ip_address: 192.168.15.1 255.255.255.0
+  interface4: 
+    ip_address: 192.168.0.3 255.255.255.0
+
+acl_ssh_looky: True
+acl_insecure: False

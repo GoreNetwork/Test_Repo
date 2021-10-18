@@ -1,0 +1,29 @@
+---
+interfaces:
+  - interface1:
+    name: GigabitEthernet1/0/1
+  - interface2:
+    name: GigabitEthernet1/0/2
+  - interface3:
+    name: GigabitEthernet1/0/3
+  - interface4:
+    name: GigabitEthernet1/0/4
+  - interface5:
+    name: GigabitEthernet1/0/5
+  - interface6:
+    name: GigabitEthernet1/0/6
+  - interface7:
+    name: GigabitEthernet1/0/7
+  - interface8:
+    name: GigabitEthernet1/0/8
+  - interface9:
+    name: GigabitEthernet1/0/9
+  - interface10:
+    name: GigabitEthernet1/0/10
+  - interface11:
+    name: GigabitEthernet1/0/11
+  - interface12:
+    name: GigabitEthernet1/0/12
+  - interface13:
+    name: GigabitEthernet1/0/13
+  - interface14:

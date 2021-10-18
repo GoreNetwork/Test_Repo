@@ -1,0 +1,17 @@
+vlan_names:
+  "data_vlan": 1
+  "voice_vlan": 2
+
+output_folder:  "/home/dhimes/Ansible_config_work/Playbooks/output/{{hostname}}"
+
+build_order:
+  - file: "/home/dhimes/Ansible_config_work/Playbooks/templates/router_main.j2"
+    order: "0000010"
+  - file: "/home/dhimes/Ansible_config_work/Playbooks/templates/acls.j2"
+    order: "0000020"
+  - file: "/home/dhimes/Ansible_config_work/Playbooks/templates/{{device_type}}/{{router_switch}}/interfaces.j2"
+    order: "0000030"
+  - file: "/home/dhimes/Ansible_config_work/Playbooks/templates/{{device_type}}/aaa.j2"
+    order: "0000040"
+  - file: "/home/dhimes/Ansible_config_work/Playbooks/templates/{{device_type}}/l3_data.j2"
+    order: "0000050"

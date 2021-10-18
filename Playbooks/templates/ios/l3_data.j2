@@ -1,0 +1,11 @@
+{% if default_gateway  is defined %}
+ip route 0.0.0.0 0.0.0.0 {{default_gateway}}
+{%endif%}
+
+{% if eigrp == True %}
+router eigrp 10
+{% for interface in ports %}
+network {{ports[interface]['ip_address']}}
+{% endfor %}
+network {{ managment_ip }} {{ managment_snm }}
+{%endif%}

@@ -1,0 +1,12 @@
+{% if acl_insecure == True %}
+ip access-list extended acl_insecure
+permit ip any any
+{%endif%}
+
+{% if acl_ssh_looky == True %}
+ip access-list extended acl_looky
+permit ip any eq 22 any log
+permit ip any any eq 22 log
+permit ip any any
+{%endif%}
+

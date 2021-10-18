@@ -1,0 +1,30 @@
+---
+- name: Build Switches
+  hosts: routers
+  connection: local
+  gather_facts: no
+  tasks:
+
+  - name: REMOVE EXISTING FILES
+    file:
+      path: /home/dhimes/Ansible_config_work/Playbooks/output/{{hostname}}
+      state: absent
+
+  - name: MAKE SURE NEEDED FOLDER EXISTS
+    file:
+      path: /home/dhimes/Ansible_config_work/Playbooks/output/{{hostname}}
+      state: directory
+
+  - name: "BUILD CONFIG SNIPPETS"
+    template:
+      src: "{{item.file}}"
+      dest: "{{output_folder}}/{{item.order}}_{{ item.file | basename | splitext | first}}.cfg"
+    loop: "{{build_order}}"
+
+
+
+
+  - name: Build_config
+    ansible.builtin.assemble:
+      src: "{{output_folder}}"
+      dest: "/home/dhimes/Ansible_config_work/Playbooks/final_output/{{hostname}}.cfg"
