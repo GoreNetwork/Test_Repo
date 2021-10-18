@@ -16,11 +16,13 @@ import getpass
 # sudo docker run -v batfish-data:/data -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
 # Once you have run this once to start it back up you'll need to run "docker start [huge ID line]"
 bf_session.host = '192.168.0.112'
+print (1)
+load_questions()
+print (2)
 network_name = 'lab'
 snapshot_path = './snapshots/lab/'
 bf_set_network(network_name)
 bf_session.init_snapshot(snapshot_path, name=network_name, overwrite=True)
-load_questions()
 
 # getpass.getpass("Going over the setup code")
 # .frame makes it into pandas data.... wish I knew pandas
