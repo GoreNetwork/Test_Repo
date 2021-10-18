@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Copy over configs to batfish test') {
             steps {
-                    sh 'mkdir -p ./batfish_tests/snapshots/lab/'
-                    sh 'cp -r ./Playbooks/output/* ./batfish_tests/snapshots/lab/'
+                    sh 'mkdir -p ./batfish_tests/snapshots/lab/configs'
+                    sh 'cp -a ./Playbooks/final_output/. ./batfish_tests/snapshots/lab/configs'
                 }
             }
         
