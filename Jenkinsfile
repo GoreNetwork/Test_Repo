@@ -13,7 +13,7 @@ pipeline {
                 dir('$workspace/Playbooks'){
                 // sh "echo $workspace/Playbooks"
                 sh 'ansible-playbook -i hosts build_switches.yml'
-            }
+            }}
         }
     }
 }
