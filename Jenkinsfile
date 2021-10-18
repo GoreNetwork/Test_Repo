@@ -2,7 +2,7 @@ pipeline {
     agent any
     // dir('/home/dhimes/Test_Repo/Playbooks')
     stages {
-        stage('Example Username/Password') {
+        stage('Build Configs') {
             environment {
                 SERVICE_CREDS = credentials('ANSIBLE')
                 USER = "$SERVICE_CREDS_USR"
@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
                 sh 'ansible-playbook -i hosts Playbooks/build_switches.yml'
+                sh "ll Playbooks/Output/R1/"
             }
         }
     }
