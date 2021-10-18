@@ -4,8 +4,8 @@ pipeline {
         stage('Example Username/Password') {
             environment {
                 SERVICE_CREDS = credentials('ANSIBLE')
-                USER = $SERVICE_CREDS_USR
-                PASSWORD = $SERVICE_CREDS_PSW
+                USER = "$SERVICE_CREDS_USR"
+                PASSWORD = "$SERVICE_CREDS_PSW"
             }
             steps {
                 sh 'echo "Service user is $SERVICE_CREDS_USR"'
