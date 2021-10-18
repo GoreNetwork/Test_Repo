@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    // dir('/home/dhimes/Test_Repo/Playbooks')
     stages {
         stage('Example Username/Password') {
             environment {
@@ -8,8 +9,7 @@ pipeline {
                 PASSWORD = "$SERVICE_CREDS_PSW"
             }
             steps {
-                sh 'echo "Service user is $SERVICE_CREDS_USR"'
-                sh 'echo "Service password is $SERVICE_CREDS_PSW"'
+                sh 'ansible-playbook -i hosts Playbooks/build_switches.yml'
             }
         }
     }
