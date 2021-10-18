@@ -11,8 +11,7 @@ pipeline {
             // }
             steps {
                 dir('Playbooks'){
-                    sh 'ansible-playbook build_switches.yml
-'
+                    sh 'ansible-playbook build_switches.yml'
                 }
                 // sh 'ansible-playbook Playbooks/build_switches.yml'
             }
