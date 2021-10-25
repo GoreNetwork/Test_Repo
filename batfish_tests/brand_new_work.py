@@ -48,15 +48,17 @@ def ip_flow_validation(bfq, src_ip, dst_ip, start_device,  end_dev=""):
     pprint(src_ip)
     return bfq.reachability(
         pathConstraints=PathConstraints(
-            startLocation=start_device, endLocation=end_dev),
+            startLocation=start_device, 
+            # endLocation=end_dev
+            ),
         headers=HeaderConstraints(srcIps=src_ip, dstIps=dst_ip),
         actions="SUCCESS,FAILURE"
     ).answer().frame()
 
 
 ip_tests = [
-    {'src_ip': '192.168.1.1',
-     'dst_ip': '192.168.34.3',
+    {'src_ip': '10.0.0.1',
+     'dst_ip': '10.0.0.1',
      'start_device': 'R1', },
     ]
 
@@ -89,16 +91,16 @@ def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev="
     ).answer().frame()
 
 port_tests = [
-    {'src_ip': '192.168.1.1',
+    {'src_ip': '10.0.0.1',
      'test_name': 'bubba',
-     'dst_ip': '192.168.34.3',
+     'dst_ip': '10.0.0.1',
      'start_device': 'R1',
      'dst_port': '23'},
-    {'src_ip': '192.168.1.1',
-     'test_name': 'ted',
-     'dst_ip': '192.168.34.3',
-     'start_device': 'R1',
-     'dst_port': '22'},
+    # {'src_ip': '192.168.1.1',
+    #  'test_name': 'ted', 
+    #  'dst_ip': '192.168.34.3',
+    #  'start_device': 'R1',
+    #  'dst_port': '22'},
 ]
 
 
