@@ -10,6 +10,7 @@ from pybatfish.question import bfq
 from pprint import pprint
 import json
 import getpass
+from pprint import pprint
 
 # Documentation https://batfish.readthedocs.io/en/latest/index.html
 # Docker host running
@@ -26,8 +27,8 @@ bf_session.init_snapshot(snapshot_path, name=network_name, overwrite=True)
 
 # getpass.getpass("Going over the setup code")
 # .frame makes it into pandas data.... wish I knew pandas
-# pprint(dir(bfq))
-# print(bfq.routes().answer().frame())
+pprint(dir(bfq))
+print(bfq.routes().answer().frame())
 
 # How did the parsing go?
 # pprint(bfq.fileParseStatus().answer().frame())
@@ -49,7 +50,7 @@ def ip_flow_validation(bfq, src_ip, dst_ip, start_device,  end_dev=""):
     return bfq.reachability(
         pathConstraints=PathConstraints(
             startLocation=start_device, 
-            # endLocation=end_dev
+            endLocation=end_dev
             ),
         headers=HeaderConstraints(srcIps=src_ip, dstIps=dst_ip),
         actions="SUCCESS,FAILURE"
@@ -59,7 +60,7 @@ def ip_flow_validation(bfq, src_ip, dst_ip, start_device,  end_dev=""):
 ip_tests = [
     {'src_ip': '10.0.0.1',
      'dst_ip': '10.0.0.1',
-     'start_device': 'R1', },
+     'start_device': ':r1', },
     ]
 
 
@@ -73,7 +74,7 @@ def test_ip_flows(ip_tests):
         print('\n')
         # getpass.getpass("Go over IP flow Test")
 
-test_ip_flows(ip_tests)
+# results =test_ip_flows(ip_tests)
 
 
 def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev=""):
@@ -94,10 +95,10 @@ port_tests = [
     {'src_ip': '10.0.0.1',
      'test_name': 'bubba',
      'dst_ip': '10.0.0.1',
-     'start_device': 'R1',
+     'start_device': ':r1',
      'dst_port': '23'},
     # {'src_ip': '192.168.1.1',
-    #  'test_name': 'ted', 
+    #  'test_name': 'ted',
     #  'dst_ip': '192.168.34.3',
     #  'start_device': 'R1',
     #  'dst_port': '22'},
@@ -159,10 +160,13 @@ for result in results:
 
     data = result.to_json()
     data = json.loads(data)
-    # pprint(data)
-    # print(result)
+    pprint(data)
+    print(result)
     pprint_reachability(result)
-    # getpass.getpass("Show IP/Port Test")
-    # pprint(results)
+    getpass.getpass("Show IP/Port Test")
+    pprint(results)
+
+
+
 
 print ('Done')
