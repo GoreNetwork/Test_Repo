@@ -163,7 +163,7 @@ for result in results:
     pprint(data)
     print(result)
     pprint_reachability(result)
-    getpass.getpass("Show IP/Port Test")
+    # getpass.getpass("Show IP/Port Test")
     pprint(results)
 
 
