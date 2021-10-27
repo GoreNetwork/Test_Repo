@@ -94,22 +94,27 @@ def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev="
 port_tests = [
     {'src_ip': '10.0.0.1',
      'test_name': 'bubba',
-     'dst_ip': '10.0.0.5',
+     'dst_ip': '10.0.0.3',
      'start_device': 'R1',
+     "end_device": 'R3',
      'dst_port': '23'},
-    {'src_ip': '10.0.0.5',
-     'test_name': 'ted',
-     'dst_ip': '8.8.8.8',
-     'start_device': 'R1',
-     'dst_port': '22'},
+    # {'src_ip': '10.0.0.5',
+    #  'test_name': 'ted',
+    #  'dst_ip': '8.8.8.8',
+    #  'start_device': 'R1',
+    #  'dst_port': '22'},
 ]
 
 
 def test_port_flows(port_tests):
     all_results = []
     for test in port_tests:
-        results = port_flow_validation(bfq, test['src_ip'],
-                                       test['dst_ip'], test['start_device'], test['dst_port'])
+        if 'end_device' in test:
+            results = port_flow_validation(bfq, test['src_ip'],
+                                       test['dst_ip'], test['start_device'], test['dst_port'],test['end_device'])
+        else:
+            results = port_flow_validation(bfq, test['src_ip'],
+                                       test['dst_ip'], test['start_device'], test['dst_port'])              
         # pprint(dir(results))
         results['name'] = test['test_name']
         # pprint(results.dict())
