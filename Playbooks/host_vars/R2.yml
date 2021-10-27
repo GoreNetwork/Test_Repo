@@ -6,7 +6,7 @@ need_dfgw: False
 eigrp: True
 router_switch: router
 device_type: ios
-
+ 
 ports: 
   interface1: 
     ip_address: 192.168.12.2 255.255.255.0
