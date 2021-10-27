@@ -60,7 +60,7 @@ def ip_flow_validation(bfq, src_ip, dst_ip, start_device,  end_dev=""):
 ip_tests = [
     {'src_ip': '10.0.0.1',
      'dst_ip': '10.0.0.1',
-     'start_device': ':r1', },
+     'start_device': 'R1', },
     ]
 
 
@@ -94,14 +94,14 @@ def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev="
 port_tests = [
     {'src_ip': '10.0.0.1',
      'test_name': 'bubba',
-     'dst_ip': '10.0.0.1',
-     'start_device': ':r1',
+     'dst_ip': '10.0.0.5',
+     'start_device': 'R1',
      'dst_port': '23'},
-    # {'src_ip': '192.168.1.1',
-    #  'test_name': 'ted',
-    #  'dst_ip': '192.168.34.3',
-    #  'start_device': 'R1',
-    #  'dst_port': '22'},
+    {'src_ip': '10.0.0.5',
+     'test_name': 'ted',
+     'dst_ip': '8.8.8.8',
+     'start_device': 'R1',
+     'dst_port': '22'},
 ]
 
 
