@@ -12,8 +12,11 @@
 
   - name: MAKE SURE NEEDED FOLDER EXISTS
     file:
-      path: ./output/{{hostname}}
+      path: "{{ item }}"
       state: directory
+    with_items:
+      - ./output/{{hostname}}
+      - ./final_output/
 
   - name: "BUILD CONFIG SNIPPETS"
     template:
