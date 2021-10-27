@@ -9,11 +9,11 @@ device_type: ios
 
 ports: 
   interface2: 
-    ip_address: 192.168.13.3 255.255.255.0
+    ip_address: 192.168.24.4 255.255.255.0
   interface3: 
-    ip_address: 192.168.23.3 255.255.255.0
+    ip_address: 192.168.34.4 255.255.255.0
   interface4: 
-    ip_address: 192.168.34.3 255.255.255.0
+    ip_address: 192.168.45.4 255.255.255.0
 
 acl_ssh_looky: False
 acl_insecure: False

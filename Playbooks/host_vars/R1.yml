@@ -11,7 +11,7 @@ device_type: ios
 
 ports: 
   interface1: 
-    ip_address: 192.168.1.1 255.255.255.0
+    ip_address: 192.168.12.1 255.255.255.0
     acl_in: acl_ssh_looky
     acl_out:  acl_ssh_looky
   interface2: 
