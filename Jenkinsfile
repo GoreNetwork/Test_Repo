@@ -1,7 +1,10 @@
 pipeline {
     agent any
+    environment {
+        PATH = "/home/dhimes/.local/bin/ansible:/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
     // dir('$workspace/Playbooks')
     // dir('/home/dhimes/Test_Repo/Playbooks')
+    
     stages {
         stage('Build Configs') {
             // environment {
@@ -11,8 +14,10 @@ pipeline {
             // }
             steps {
                 dir('Playbooks'){
-                    // sh 'ansible-playbook build_switches.yml'
-                    sh 'apt-get install ansible'
+                    sh "whoami"
+                    sh "ech $PATH"
+                    echo "PATH is: $ANS_HOME"
+                    sh 'ansible-playbook build_switches.yml'
                     // sh 'who'
                 }
                 // sh 'ansible-playbook Playbooks/build_switches.yml'
