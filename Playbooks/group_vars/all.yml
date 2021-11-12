@@ -4,6 +4,12 @@ vlan_names:
 
 output_folder:  "output/{{hostname}}"
 
+ansible_host: "{{ managment_ip }}"
+ansible_password: password
+ansible_user: dhimes
+ansible_connection: ansible.netcommon.network_cli
+
+
 build_order:
   - file: "templates/router_main.j2"
     order: "0000010"
@@ -15,3 +21,5 @@ build_order:
     order: "0000040"
   - file: "templates/{{device_type}}/l3_data.j2"
     order: "0000050"
+  - file: "templates/{{device_type}}/vty.j2"
+    order: "0000060"

@@ -5,7 +5,7 @@ ip route 0.0.0.0 0.0.0.0 {{default_gateway}}
 {% if eigrp == True %}
 router eigrp 10
 {% for interface in ports %}
-network {{ports[interface]['ip_address']}}
+ network {{ports[interface]['ip_address']}}
 {% endfor %}
-network {{ managment_ip }} {{ managment_snm }}
+ network {{ managment_ip }} {{ managment_snm }}
 {%endif%}

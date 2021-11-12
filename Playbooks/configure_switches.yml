@@ -1,0 +1,39 @@
+---
+- name: Deploy Routers
+  hosts: routers
+  connection: local
+  gather_facts: no
+  tasks:
+
+#  had to edit  vim /etc/ssh/ssh_config to be
+#Host *
+#     KexAlgorithms diffie-hellman-group1-sha1,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1    Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc
+#     MACs hmac-md5,hmac-sha1,umac-64@openssh.com
+
+  # - name: Full Configure Routers
+  #   ansible.netcommon.cli_config:
+  #     config: "{{ lookup('file', './final_output/{{hostname}}.cfg')}}"
+  
+  - name: Main Config
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000010_router_main.cfg')}}"
+
+  - name: Configure ACLs
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000020_acls.cfg')}}"
+
+  - name: Configure Interfaces
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000030_interfaces.cfg')}}"
+
+  - name: Configure AAA
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000040_aaa.cfg')}}"
+
+  - name: Configure L3
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000050_l3_data.cfg')}}"
+
+  - name: Configure VTY
+    ansible.netcommon.cli_config:
+      config: "{{ lookup('file', './output/{{hostname}}/0000060_vty.cfg')}}"
