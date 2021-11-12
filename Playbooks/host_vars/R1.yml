@@ -7,7 +7,7 @@ default_gateway: 192.168.0.1
 eigrp: True
 router_switch: router
 device_type: ios
-
+ansible_network_os: cisco.ios.ios
 
 ports: 
   interface1: 
