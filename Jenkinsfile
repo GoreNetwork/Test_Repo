@@ -18,7 +18,8 @@ pipeline {
                     // sh "whoami"
                     // sh "echo $PATH"
                     // echo "PATH is: $ANS_HOME"
-                    sh 'ansible-playbook build_switches.yml'
+                    ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, installation: 'ansible', playbook: 'build_switches.yml'
+                    // sh 'ansible-playbook build_switches.yml'
                     // sh 'who'
                 }
                 // sh 'ansible-playbook Playbooks/build_switches.yml'
