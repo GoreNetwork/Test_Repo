@@ -33,14 +33,5 @@ pipeline {
                 }
             }
         }
-        // stage('Deploy Routers') {
-        //     steps {
-        //         dir('Playbooks'){
-        //             sh 'ansible-playbook configure_switches.yml'
-        //         }
-        //         // sh 'ansible-playbook Playbooks/build_switches.yml'
-        //     }
-        }
-
     }
 }
