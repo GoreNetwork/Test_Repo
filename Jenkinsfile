@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         PATH = "/home/dhimes/.local/bin/ansible:/usr/bin/ansible:/usr/bin/ansible-playbook:$PATH"
+            }
     // dir('$workspace/Playbooks')
     // dir('/home/dhimes/Test_Repo/Playbooks')
     
