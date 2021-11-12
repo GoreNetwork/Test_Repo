@@ -16,7 +16,7 @@ pipeline {
             steps {
                 dir('Playbooks'){
                     sh "whoami"
-                    sh "ech $PATH"
+                    sh "echo $PATH"
                     echo "PATH is: $ANS_HOME"
                     sh 'ansible-playbook build_switches.yml'
                     // sh 'who'
