@@ -44,7 +44,8 @@ pipeline {
         stage('Deploy Configs') {
             steps {
                 dir('Playbooks'){
-                     sh 'ansible-playbook configure_switches.yml'
+                     sh "ansible-playbook configure_switches.yml ansible_ssh_extra_args='-o StrictHostKeyChecking=no"
+'
                 }
             }
         }    
