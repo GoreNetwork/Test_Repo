@@ -45,7 +45,7 @@ pipeline {
             steps {
                 dir('Playbooks'){
                      sh 'ansible-playbook configure_switches.yml'
-'
+
                 }
             }
         }    
