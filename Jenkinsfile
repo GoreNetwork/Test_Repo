@@ -41,6 +41,13 @@ pipeline {
                         
                 }
             }
+        stage('Deploy Configs') {
+            steps {
+                dir('Playbooks'){
+                     sh 'ansible-playbook configure_switches.yml'
+                }
+            }
+        }    
         }
     }
 }
