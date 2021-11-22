@@ -32,7 +32,7 @@ bf_session.init_snapshot(snapshot_path, name=network_name, overwrite=True)
 
 # getpass.getpass("Going over the setup code")
 # .frame makes it into pandas data.... wish I knew pandas
-pprint(dir(bfq))
+# pprint(dir(bfq))
 print(bfq.routes().answer().frame())
 
 # How did the parsing go?
