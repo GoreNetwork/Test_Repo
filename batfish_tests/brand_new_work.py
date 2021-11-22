@@ -33,7 +33,7 @@ bf_session.init_snapshot(snapshot_path, name=network_name, overwrite=True)
 # getpass.getpass("Going over the setup code")
 # .frame makes it into pandas data.... wish I knew pandas
 # pprint(dir(bfq))
-print(bfq.routes().answer().frame())
+# print(bfq.routes().answer().frame())
 
 # How did the parsing go?
 # pprint(bfq.fileParseStatus().answer().frame())
@@ -43,11 +43,11 @@ print(bfq.routes().answer().frame())
 
 # Find duplicate IPs
 print ("Dup IP addresses")
-pprint(bfq.ipOwners(duplicatesOnly=True).answer().frame())
+# pprint(bfq.ipOwners(duplicatesOnly=True).answer().frame())
 # See Data per row abit clearer
 # pprint(bfq.ipOwners(duplicatesOnly=True).answer().frame().iloc[0])
 # pwd = getpass.getpass("Show Duplicate IP addresses")
-pprint(bfq.bgpSessionCompatibility().answer().frame())
+# pprint(bfq.bgpSessionCompatibility().answer().frame())
 # pwd = getpass.getpass("Show BGP session data")
 
 
@@ -84,7 +84,7 @@ def test_ip_flows(ip_tests):
 
 
 def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev=""):
-    pprint(src_ip)
+    # pprint(src_ip)
     return bfq.reachability(
         pathConstraints=PathConstraints(
             startLocation=start_device, endLocation=end_dev),
@@ -98,7 +98,7 @@ def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev="
     ).answer().frame()
 
 port_tests = open_yml_file('tests.yml')
-pprint (port_tests)
+# pprint (port_tests)
 
 
 # port_tests = [
