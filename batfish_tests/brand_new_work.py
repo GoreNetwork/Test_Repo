@@ -154,7 +154,11 @@ results = test_port_flows(port_tests)
 
 
 def pprint_reachability(answer):
-
+    good_results= [
+        "ACCEPTED",
+        "DELIVERED_TO_SUBNET",
+        "EXITS_NETWORK",
+    ]
     # getpass.getpass("Type")
     # print(type(answer))
     # pprint(dir(answer))
@@ -170,7 +174,7 @@ def pprint_reachability(answer):
         for count, trace in enumerate(row["Traces"], start=1):
             print(f"\nTrace #{count}")
             print(f"{trace}")
-            if trace.dict()['disposition'] != "ACCEPTED":
+            if trace.dict()['disposition'] not in good_results:
                 print (trace.dict()['disposition'])
                 raise Exception("Not reachable")
             # pprint (trace.dict())

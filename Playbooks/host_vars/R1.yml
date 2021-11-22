@@ -23,3 +23,4 @@ ports:
 
 acl_ssh_looky: True
 acl_insecure: False
+kill_ssh: True

@@ -4,7 +4,6 @@ ip route 0.0.0.0 0.0.0.0 {{default_gateway}}
 
 {% if eigrp == True %}
 router eigrp 10
-redistribute static
 {% for interface in ports %}
  network {{ports[interface]['ip_address']}}
 {% endfor %}

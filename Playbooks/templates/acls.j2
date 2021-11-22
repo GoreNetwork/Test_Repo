@@ -10,3 +10,11 @@ ip access-list extended acl_looky
  permit ip any any
  {%endif%}
 
+
+{% if kill_ssh == True %}
+ip access-list extended kill_ssh
+ permit tcp host 10.0.0.1 host 10.0.0.5 eq 22
+ deny   tcp 192.168.15.0 0.0.0.255 host 10.0.0.5 eq 22
+ deny   tcp 10.0.0.0 0.255.255.255 host 10.0.0.5 eq 22
+ permit ip any any
+ {%endif%}

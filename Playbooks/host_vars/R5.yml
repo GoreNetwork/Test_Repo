@@ -11,8 +11,10 @@ ansible_network_os: cisco.ios.ios
 ports: 
   interface1: 
     ip_address: 192.168.15.15 255.255.255.0
+    acl_in: kill_ssh
   interface4: 
     ip_address: 172.19.0.1 255.255.255.0
 
 acl_ssh_looky: False
 acl_insecure: False
+kill_ssh: True
