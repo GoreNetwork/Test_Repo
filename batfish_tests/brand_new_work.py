@@ -11,6 +11,11 @@ from pprint import pprint
 import json
 import getpass
 from pprint import pprint
+import yaml
+
+def open_yml_file(file_name):
+    with open(file_name, "r") as stream:
+        return yaml.safe_load(stream)
 
 # Documentation https://batfish.readthedocs.io/en/latest/index.html
 # Docker host running
@@ -37,6 +42,7 @@ print(bfq.routes().answer().frame())
 # getpass.getpass("Going over the parse warnings")
 
 # Find duplicate IPs
+print ("Dup IP addresses")
 pprint(bfq.ipOwners(duplicatesOnly=True).answer().frame())
 # See Data per row abit clearer
 # pprint(bfq.ipOwners(duplicatesOnly=True).answer().frame().iloc[0])
@@ -53,7 +59,7 @@ def ip_flow_validation(bfq, src_ip, dst_ip, start_device,  end_dev=""):
             endLocation=end_dev
             ),
         headers=HeaderConstraints(srcIps=src_ip, dstIps=dst_ip),
-        actions="SUCCESS,FAILURE"
+        actions="FAILURE"
     ).answer().frame()
 
 
@@ -91,24 +97,30 @@ def port_flow_validation(bfq, src_ip, dst_ip, start_device, dst_port,  end_dev="
         actions="SUCCESS,FAILURE"
     ).answer().frame()
 
-port_tests = [
-    {'src_ip': '10.0.0.1',
-     'test_name': 'bubba',
-     'dst_ip': '10.0.0.3',
-     'start_device': 'R1',
-     "end_device": 'R3',
-     'dst_port': '23'},
-    # {'src_ip': '10.0.0.5',
-    #  'test_name': 'ted',
-    #  'dst_ip': '8.8.8.8',
-    #  'start_device': 'R1',
-    #  'dst_port': '22'},
-]
+port_tests = open_yml_file('tests.yml')
+pprint (port_tests)
+
+
+# port_tests = [
+#     {'src_ip': '10.0.0.1',
+#      'test_name': 'bubba',
+#      'dst_ip': '10.0.0.3',
+#      'start_device': 'R1',
+#      "end_device": 'R3',
+#      'dst_port': '23'},
+#     # {'src_ip': '10.0.0.5',
+#     #  'test_name': 'ted',
+#     #  'dst_ip': '8.8.8.8',
+#     #  'start_device': 'R1',
+#     #  'dst_port': '22'},
+# ]
 
 
 def test_port_flows(port_tests):
+    # pprint (port_tests)
     all_results = []
     for test in port_tests:
+        pprint (test)
         if 'end_device' in test:
             results = port_flow_validation(bfq, test['src_ip'],
                                        test['dst_ip'], test['start_device'], test['dst_port'],test['end_device'])
@@ -158,18 +170,26 @@ def pprint_reachability(answer):
         for count, trace in enumerate(row["Traces"], start=1):
             print(f"\nTrace #{count}")
             print(f"{trace}")
+            if trace.dict()['disposition'] != "ACCEPTED":
+                print (trace.dict()['disposition'])
+                raise Exception("Not reachable")
+            # pprint (trace.dict())
         print("----")
+
+
+        # pprint (dir(trace.dict))
+        
 
 
 for result in results:
 
-    data = result.to_json()
-    data = json.loads(data)
-    pprint(data)
-    print(result)
+    # data = result.to_json()
+    # data = json.loads(data)
+    # pprint(data)
+    # print(result)
     pprint_reachability(result)
     # getpass.getpass("Show IP/Port Test")
-    pprint(results)
+    # pprint(results)
 
 
 
