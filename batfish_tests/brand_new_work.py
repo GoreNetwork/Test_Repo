@@ -120,7 +120,7 @@ def test_port_flows(port_tests):
     # pprint (port_tests)
     all_results = []
     for test in port_tests:
-        pprint (test)
+        # pprint (test)
         if 'end_device' in test:
             results = port_flow_validation(bfq, test['src_ip'],
                                        test['dst_ip'], test['start_device'], test['dst_port'],test['end_device'])
